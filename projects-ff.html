@@ -47,7 +47,7 @@
 						<!-- One -->
 							<section id="one">
 								<div class="image main" data-position="center">
-									<img src="images/banner.jpg" alt="" />
+									<img src="images/FF/Game Banner.JPG" alt="Flag Frenzy Being Played" />
 								</div>
 								<div class="container">
 									<header class="major">
@@ -63,8 +63,16 @@
 									<p><br/> Our professor loved the game so much that he asked us to use it as an example for next year’s class. If you would like to learn more about Flag Frenzy, below, I go into the design process and a bit about game theory.</p>
 									<hr />
 									<h4>Creating the Game</h4>
-									<p>On our first day of the class, Prof. Lima asked us to make groups of four. I made a group with Akil Foster, Jude Pizzone, and Aymane Saissi. Our task was to create an enjoyable and captivating multiplayer game that we could potentially sell in the market. In the first week, we presented our game for the class to play, and every subsequent week, we showcased an updated version of the game. During these presentations, we exchanged feedback with our classmates, aiming to improve the game each time. Throughout the iterations, I discovered the delicate equilibrium between making the game fun while also maintaining an appropriate level of challenge.</p>
-									<p>The first week we presented a combination of Tag + Capture the Flag and the class loved it. The second week, we attempted an 8-player version of tic-tac-toe, but it turned out to be overly complicated. The third week, we came up with an interesting twist on Minesweeper, the classic single-player puzzle game from 1989. Finally, in the fourth week, we tried a competitive water drinking game. After exploring these four different game types, we ultimately decided to stick with the first one, as it received the most positive response from the class.</p>
+									<p>On our first day of the class, Prof. Lima asked us to make groups of four. I made a group with Akil Foster, Jude Pizzone, and Aymane Saissi. Our task was to create an enjoyable and captivating multiplayer game that we could potentially sell to a market. In the first week, we presented our game for the class to play, and every subsequent week, we showcased an updated version of the game. During these presentations, we exchanged feedback with our classmates, aiming to improve the game each time. Throughout the iterations, I discovered the delicate equilibrium between making the game fun while also maintaining an appropriate level of challenge.</p>
+									<p>The first week we presented a combination of Tag + Capture the Flag and the class loved it. The second week, we attempted an 8-player version of tic-tac-toe, but it turned out to be overly complicated. The third week, we came up with an interesting twist on Minesweeper, the classic single-player puzzle game from 1989. And finally, in the fourth week, we tried a competitive water drinking game. After exploring these four different game types, we ultimately decided to stick with the first one, as it received the most positive response from the class.</p>
+									<p>And here are the rules: The game is a round based game where 2 players are chosen randomly. One of the chosen players is the <span style="color: blue;">rabbit</span> and the other is the <span style="color: red;">fox</span>. The <span style="color: red;">fox</span> gets a point if they catch the <span style="color: blue;">rabbit</span> before 20 seconds is up. The <span style="color: blue;">rabbit</span> gets a point if they survive without being tagged for 20 seconds. A player wins once they get 5 points.</p>
+									<p>Although the rules are simple, the intentionally long choosing time and flipping nature of the roles makes Flag Frenzy very exciting and fun to play over and over again.</p>
+									<hr />
+									<h4>Coding the Game</h4>
+									<p>Initially, we programmed the game virtually using tinkercad to verify the code's logical functioning. The coding process was relatively straightforward. It involved assigning a distinct LED to each of the six players and incorporating a corresponding proximity sensor for each player as well. Through this setup, the game randomly designated one player as the "fox" and another as the "rabbit" based on the detection of nearby players within the proximity range of the sensor. The fox was to catch and tag the rabbit before the time ran out, and inversely the rabbit was to run away from the fox until the time ran out. The way we verified who caught/escaped who was by checking the proximity sensors if they detected that the players had sat back down. If the player did not return, the program would take them out of the pool of current players. </p>
+									<div style="text-align: center;">
+										<img src="images/FF/Coding the Game.PNG" alt="Coding the Game" width="469" height="315"> <!--Original is 938 x 629-->
+										</div>
 									<hr />
 									<h4>Game Design</h4>
 									<p>Finding the right balance between fun and difficulty can be quite challenging. Initially, everyone aims to make their game as enjoyable as possible. They want to create an undeniable sense of fun, with satisfying gameplay and plenty of dopamine-inducing moments for players. However, there's a catch— if a game is excessively fun, it can become monotonous and lose player interest rather quickly. So, what's the solution? Introducing more difficulty seems like a good idea, right? Well, it's not that simple. If a game lacks sufficient challenge, players won't feel engaged, and if it's overly difficult, players may become discouraged and not want to invest time in learning the mechanics. With this knowledge, we quickly noticed that striking the right balance between fun and difficulty becomes the primary challenge to overcome.</p>
@@ -73,12 +81,6 @@
 										</div>
 									<p>Credit: gamedev.net</p>
 									<p>After finalizing our game choice, we collaboratively established the game rules. With a clear set of rules in hand, we outlined a plan to develop a prototype with LEDs, design an enclosure, and ensure the game code was flawless.</p>
-									<hr />
-									<h4>Coding the Game</h4>
-									<p>Initially, we programmed the game virtually using tinkercad to verify the code's logical functioning. The coding process was relatively straightforward. It involved assigning a distinct LED to each of the six players and incorporating a corresponding proximity sensor for each player as well. Through this setup, the game randomly designated one player as the "fox" and another as the "rabbit" based on the detection of nearby players within the proximity range of the sensor. The fox was to catch and tag the rabbit before the time ran out, and inversely the rabbit was to run away from the fox until the time ran out. </p>
-									<div style="text-align: center;">
-										<img src="images/FF/Coding the Game.PNG" alt="Coding the Game" width="469" height="315"> <!--Original is 938 x 629-->
-										</div>
 									<hr />
 									<h4>Soldering NeoPixels</h4>
 									<p>One of our classmates introduced us to NeoPixels. A type of LED that made our task much simpler. Each individual LED could be located then programmed separate to the rest. All we needed to do after that was cut the LED strip and then solder the pieces back together to increase the distance between the LEDs.</p>
@@ -95,8 +97,8 @@
 										</div>
 									<hr />
 									<h4>Final Thoughts</h4>
-									<p>After testing the product and crushing some of the code bugs, we managed to create a great game that was very enjoyed by our classmates. </p>
-									<p>I would love to make this prototype of a game into a real product to sell. If you are interested in making this a reality or know of people in game manufacturing please reach out to me. </p>
+									<p>Looking back on all of it, my group and I managed to create a thrilling game that was both genuinely loved and admired by our classmates. The collective work we put into this project was worth the satisfaction we received at the end.</p>
+									<p>And of course this project was designed to inspire us into creating a product that we could sell into the games market. Given this, I would love to make this prototype game into a real product to sell. If you are interested in making this a reality or know of people in game manufacturing please reach out to me. </p>
 
 								</div>
 							</section>
