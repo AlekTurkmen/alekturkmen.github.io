@@ -56,12 +56,131 @@
 								</div>
 								<div class="container">
 									<header class="major">
-										<h3 style="color: #86cdcf !important;">Hacking Cooper</h3>
-										<p>[Start Date - End Date | City, State]</p>
+										<h3 style="color: #86cdcf !important;">Hacking Cooper Union</h3>
+										<p>March 2024</p>
 									</header>
-									<p>Looks like you're here early!</p>
-									<p>Come back soon, this page is under construction :)</p>
+									<h4>Introduction</h4>
+									<p>Cooper Union produces some of the most intelligent, capable, and well equipped engineers, artists, and architects in the world. In an ideal world, having a list of all alumni that have graduated would be really helpful for networking. Cooper Union fortunately does have an alumni portal, but unfortunately it’s strictly for alumni only.</p>
+									<p>So, I went one day to Cooper’s Center for Career Development and asked the staff for an excel file of the entire alumni roster. Unsurprisingly, they said no.</p>
+									<p>To get an alumni account, I contacted support and pretended to be an alumnus who forgot their password. They sent me a reset login code, and I used it to create an account. I thought this was all I needed and that I could now access the entire list of alumni. Boy was I wrong.</p>
+
+									<h4>Problem</h4>
+									<span class="image fit"><img src="../images/HCU/findmyclassmates.png" alt="Find My Classmates" /></span>
+									<p>The alumni portal includes a "Find My Classmates" feature that serves as an interface between the user and the backend. This interface uses an editable URL API request to communicate and retrieve information. However, it has significant limitations: requests are restricted to certain parameters, and each request only returns a maximum of 100 alumni results. I needed to create an automatic process that would scrape the entire database by repeatedly calling the API.</p>
+									<p>Game. Set. Match. </p>
+
+									<h4>Challenge 1: Reverse Engineering API Calls</h4>
+									<p>The first challenge was figuring how to manipulate API calls to and from the website and reverse engineering the form's specifc parameters. Always remember that the inspect tool is your best friend when reverse engineering websites.</p>
+									<p>I started to do some digging and I got some good information from:</p>
+									<code><span style="font-size: 0.8em;">Inspect → Network → Refresh Page → Select API Request → Headers</span></code>
+									<span class="image fit"><img src="../images/HCU/requestURL.png" alt="API Request URL" /><code><span style="font-size: 0.8em;">https://connect.cooper.edu/portal/alum_alum?cmd=search&amp;start_year=2022&amp;end_year=2023</span></code></span>
+
+
+									<p>Altering the URL a tiny bit and we get:<br><code><span style="font-size: 0.8em;">https://connect.cooper.edu/account/login?r=https%3a%2f%2fconnect.cooper.edu%2fportal%2falum_alum%3fcmd%3dsearch<br>%26amp%3bsearch_cooper_school%3dEngineering%26amp%3bstart_year%3d2010%26amp%3bend_year%3d2010&cookie=1</span></code></p>
+									<p>Breaking that down: <br>
+									<code>
+										<span>Start at login page</span>
+										<span style="color: red;">https://connect.cooper.edu/account/login?r=</span> <br>
+									</code>
+									<code>
+										<span>Redirect to API with Engineering and class of 2010 as parameters</span>
+										<span style="color: yellow;">https%3a%2f%2fconnect.cooper.edu%2fportal%2falum_alum%3fcmd%3dsearch<br>%26amp%3bsearch_cooper_school%3dEngineering%26amp%3bstart_year%3d2010%26amp%3bend_year%3d2010<br></span>
+									</code>
+									<code>
+										<span>Expect cookies</span>
+										<span style="color: green;">&cookie=1</span>
+									</code>
+									</p>
+
+									<h4>Challenge 2: Anti-Bot Counter Measures</h4>
+									<p>The second challenge was that the alumni directory portal has several anti-bot counter measures. So non-human automation was going to be tricky. Setting up a simple script to probe the website, I kept getting 403 Forbidden Error responses. </p>
+									<pre><code>
+import requests
+from bs4 import BeautifulSoup
+
+def login(username, password):
+	login_url = "https://connect.cooper.edu/account/login?r=https%3a%2f%2fconnect.cooper.edu%2fportal%2falum_alum"
+	payload = {
+		'username': username,
+		'password': password
+	}
+
+	session = requests.Session()
+	response = session.post(login_url, data=payload)
+	#response.raise_for_status()
+
+	return session, response
+
+def extract_visible_text(response):
+	soup = BeautifulSoup(response.content, 'html.parser')
+	visible_text = soup.get_text()
+	return visible_text
+
+def main():
+	username = 'email@email.com' #change to your username
+	password = 'myPassword' #change to your password
+
+	session, response = login(username, password)
+
+	print("Login response status code:", response.status_code)
+	print("Login response visible text:")
+	print(response)
+	print(extract_visible_text(response))
+
+if __name__ == "__main__":
+	main()
+									</code></pre>
+									<p>The response I got:</p>
+									<blockquote>Login response status code: 403
+										Login response visible text:
+										<Response [403]>
+										ForbiddenThis website uses scripting to enhance your browsing experience. Enable JavaScript in your browser and then reload this website.This website uses resources that are being blocked by your network. Contact your network administrator for more information.</blockquote>
+
+									<p>This error means that the website received the request, understood it, but declined to authorize it. This also means that any further requests will be denied. My hunch was that this was occurring because the website simply had verification cookies that it was sending back and forth between the end user and the server that I needed to emulate.</p>
+									<p>The work around to this problem is by collecting the cookies before login and collecting them after login and comparing them and rotating user agents that are sent in with the website request. Then rerouting the code to a second url with all of the data in html formatting. </p>
+
+									<h5>ID Cookies</h5>
+									<p>Coming back to the inspect tool:</p>
+									<code><span style="font-size: 0.8em;">Inspect → Application → Refresh Page → Storage → Cookies</span></code>
+									<span class="image fit"><img src="../images/HCU/idcookies.png" alt="ID Cookies" /></span>
+									<p>Here we have all of the tracking cookies. _cc_id and _uid are important. But we will carry all of them just incase.</p>
 									
+									<h5>User Agent Tracking</h5>
+									<p>I also briefly want to mention the role of User Agents and the role they play for anti-bot web scraping.</p>
+									<p>User agents are strings that web scrapers use to identify themselves as browsers when making requests to websites. This helps bypass basic anti-scraping measures and ensures the scraper receives the same content as a regular user. I just used the most common one:</p>
+									<pre><code>
+'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+AppleWebKit/537.36 (KHTML, like Gecko) 
+Chrome/91.0.4472.124 Safari/537.36'
+								</code></pre>
+									<p>Here's a nice <a href="https://techblog.willshouse.com/2012/01/03/most-common-user-agents/" target="_blank">website</a> that has a rolling average of most common user agents (the highlighted one is your current user agent profile).</p>
+
+									<h4>Challenge 3: Web Scraping & Combining Data</h4>
+									<p>The final challenge was taking all of the html data and converting it to a csv excel ready file. </p>
+									<p>I used pandas and df to take the response html from the website and convert the information to csv formatting with each alumnus’ information stored seperately. </p>
+									<p>I also iterated through the API URL to pull all alumni since 1941.</p>
+									<pre><code>
+# Loop through the years 1941 to 2024
+for year in range(1941, 2028):
+	# Second URL to display content after successful login
+	second_url = f'https://connect.cooper.edu/portal/alum_alum?cmd=search&search_cooper_school=Engineering&start_year={year}&end_year={year}&cookie=1'
+
+	# Send a GET request to the second URL after successful login
+	second_response = session.get(second_url)
+
+	# Check if the request was successful
+	if second_response.status_code == 200:
+		print(f"\nRequest to second URL for year {year} Successful!")
+		# Append HTML content of the response from the second URL to the variable
+		all_html_responses += second_response.text
+	else:
+		print(f"Request to second URL for year {year} Failed with status code: {second_response.status_code}")
+
+
+									</code></pre>
+
+									<h4>Results</h4>
+									<p>I ended up with a 14.1 MB file that includes all Cooper Union alumni. :)</p>
 								</div>
 							</section>
 					</div>
