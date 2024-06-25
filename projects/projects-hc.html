@@ -60,7 +60,7 @@
 										<p>March 2024</p>
 									</header>
 									<h4>Introduction</h4>
-									<p>Cooper Union produces some of the most intelligent, capable, and well equipped engineers, artists, and architects in the world. In an ideal world, having a list of all alumni that have graduated would be really helpful for networking. Cooper Union fortunately does have an alumni portal, but unfortunately it’s strictly for alumni only.</p>
+									<p>Cooper Union produces some of the most intelligent, capable, and well equipped engineers, artists, and architects on the planet. In an ideal world, having a list of all alumni that have graduated would be really helpful for networking. Cooper Union fortunately does have an alumni portal, but unfortunately it’s strictly for alumni only.</p>
 									<p>So, I went one day to Cooper’s Center for Career Development and asked the staff for an excel file of the entire alumni roster. Unsurprisingly, they said no.</p>
 									<p>To get an alumni account, I contacted support and pretended to be an alumnus who forgot their password. They sent me a reset login code, and I used it to create an account. I thought this was all I needed and that I could now access the entire list of alumni. Boy was I wrong.</p>
 
@@ -70,14 +70,14 @@
 									<p>Game. Set. Match. </p>
 
 									<h4>Challenge 1: Reverse Engineering API Calls</h4>
-									<p>The first challenge was figuring how to manipulate API calls to and from the website and reverse engineering the form's specifc parameters. Always remember that the inspect tool is your best friend when reverse engineering websites.</p>
+									<p>The first challenge was figuring how to manipulate API calls to and from the website + reverse engineering the form's specifc parameters. Always remember that the inspect tool is your best friend when reverse engineering websites.</p>
 									<p>I started to do some digging and I got some good information from:</p>
 									<code><span style="font-size: 0.8em;">Inspect → Network → Refresh Page → Select API Request → Headers</span></code>
-									<span class="image fit"><img src="../images/HCU/requestURL.png" alt="API Request URL" /><code><span style="font-size: 0.8em;">https://connect.cooper.edu/portal/alum_alum?cmd=search&amp;start_year=2022&amp;end_year=2023</span></code></span>
+									<span class="image fit"><img src="../images/HCU/requestURL.png" alt="API Request URL" /><code><span style="font-size: 0.8em;">https://connect.cooper.edu/portal/alum_alum?cmd=search&amp;start_year=2022&amp;end_year=2023</span></code><p>This URL is the request method that the website uses.</p></span>
 
-
+									
 									<p>Altering the URL a tiny bit and we get:<br><code><span style="font-size: 0.8em;">https://connect.cooper.edu/account/login?r=https%3a%2f%2fconnect.cooper.edu%2fportal%2falum_alum%3fcmd%3dsearch<br>%26amp%3bsearch_cooper_school%3dEngineering%26amp%3bstart_year%3d2010%26amp%3bend_year%3d2010&cookie=1</span></code></p>
-									<p>Breaking that down: <br>
+									<p>Dividing that into 3 sections: <br>
 									<code>
 										<span>Start at login page</span>
 										<span style="color: red;">https://connect.cooper.edu/account/login?r=</span> <br>
@@ -91,9 +91,10 @@
 										<span style="color: green;">&cookie=1</span>
 									</code>
 									</p>
+									<p>With this URL, we can now send automated requests to the website and it "should" send back the information we requested.</p>
 
 									<h4>Challenge 2: Anti-Bot Counter Measures</h4>
-									<p>The second challenge was that the alumni directory portal has several anti-bot counter measures. So non-human automation was going to be tricky. Setting up a simple script to probe the website, I kept getting 403 Forbidden Error responses. </p>
+									<p>The second challenge was that the alumni directory portal has several anti-bot counter measures. So non-human automation was going to be tricky. Building off of the request URL we crafted in the last section, I set up a simple script to probe the website.</p>
 									<pre><code>
 import requests
 from bs4 import BeautifulSoup
@@ -130,14 +131,15 @@ def main():
 if __name__ == "__main__":
 	main()
 									</code></pre>
-									<p>The response I got:</p>
+									<p>I kept getting 403 Forbidden Error responses which looked like:</p>
 									<blockquote>Login response status code: 403
 										Login response visible text:
 										<Response [403]>
 										ForbiddenThis website uses scripting to enhance your browsing experience. Enable JavaScript in your browser and then reload this website.This website uses resources that are being blocked by your network. Contact your network administrator for more information.</blockquote>
 
-									<p>This error means that the website received the request, understood it, but declined to authorize it. This also means that any further requests will be denied. My hunch was that this was occurring because the website simply had verification cookies that it was sending back and forth between the end user and the server that I needed to emulate.</p>
-									<p>The work around to this problem is by collecting the cookies before login and collecting them after login and comparing them and rotating user agents that are sent in with the website request. Then rerouting the code to a second url with all of the data in html formatting. </p>
+									<p>This error means that the website received the request, understood it, but declined to authorize it. This also means that any further requests will be denied. Writting this in hindsight, it's easier for me to say that I knew was getting 403 errors because of sending no verification cookies. But the reality is that it took a couple days of learning what internet requests / protocols look like.</p>
+									<p>Eventually I figured out that I needed to send (emulate) verification cookies between me and the server (much like a google chrome browser would).</p>
+									<p>The work around to this problem is by collecting the cookies before login, collecting cookies after login, then comparing them. </p>
 
 									<h5>ID Cookies</h5>
 									<p>Coming back to the inspect tool:</p>
@@ -146,14 +148,14 @@ if __name__ == "__main__":
 									<p>Here we have all of the tracking cookies. _cc_id and _uid are important. But we will carry all of them just incase.</p>
 									
 									<h5>User Agent Tracking</h5>
-									<p>I also briefly want to mention the role of User Agents and the role they play for anti-bot web scraping.</p>
-									<p>User agents are strings that web scrapers use to identify themselves as browsers when making requests to websites. This helps bypass basic anti-scraping measures and ensures the scraper receives the same content as a regular user. I just used the most common one:</p>
+									<p>Again, mimicing what a web browser like google chrome would do is key for getting around anti-bot counter measures. I want to mention the role of User Agents and the role they play for anti-bot web scraping.</p>
+									<p>User agents are strings that web scrapers use to identify themselves as browsers when making requests to websites. It tells the backend sever, "Hey, I'm a user on a Windows 10 using the latest version of Google Chrome (plus a couple more things)." This helps bypass basic anti-scraping measures and ensures the scraper receives the same content as a regular user. I just used the most common one on the internet, which happens to be:</p>
 									<pre><code>
 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 AppleWebKit/537.36 (KHTML, like Gecko) 
 Chrome/91.0.4472.124 Safari/537.36'
 								</code></pre>
-									<p>Here's a nice <a href="https://techblog.willshouse.com/2012/01/03/most-common-user-agents/" target="_blank">website</a> that has a rolling average of most common user agents (the highlighted one is your current user agent profile).</p>
+									<p>Here's a nice <a href="https://techblog.willshouse.com/2012/01/03/most-common-user-agents/" target="_blank">website</a> that has a rolling average of most common user agents (the highlighted one is your current user agent profile). BTW, this is only scratching the surface of what information websites receive and track. </p>
 
 									<h4>Challenge 3: Web Scraping & Combining Data</h4>
 									<p>The final challenge was taking all of the html data and converting it to a csv excel ready file. </p>
@@ -180,7 +182,7 @@ for year in range(1941, 2028):
 									</code></pre>
 
 									<h4>Results</h4>
-									<p>I ended up with a 14.1 MB file that includes all Cooper Union alumni. :)</p>
+									<p>I ended up with a 14.1 MB file that includes all Cooper Union alumni from (1941-2028). <br>:)<br>Cooper Union - 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alek - 1</p>
 								</div>
 							</section>
 					</div>
