@@ -131,22 +131,331 @@
 										</div>
 									</div>
 									<br>
-
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-6" style="display: flex; justify-content: center;">
+											<span class="image fit" style="display: flex; justify-content: center;">
+											  <img src="../images/HP/Level2.png" alt="Refrigerant Schematic" style="display: block; max-width: 100%; height: auto;" />
+											</span>
+										  </div>
+										<div class="col-6" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Screenshot 2024-07-07 at 10.43.25 PM.png" alt="Water Schematic" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<p>The two loop schematics above are for the refrigerant line (left) and the water line (right). This laid out the basic design of the entire rig. Btw, the water line is duplicated, meaning the hot water line and the cold water line are just mirrored versions of each other. </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-6" style="display: flex; justify-content: center;">
+											<span class="image fit" style="display: flex; justify-content: center;">
+											  <img src="../images/HP/Screenshot 2024-07-07 at 10.48.57 PM.png" alt="Refrigerant Schematic" style="display: block; max-width: 100%; height: auto;" />
+											</span>
+										  </div>
+										<div class="col-6" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Screenshot 2024-07-07 at 10.49.09 PM.png" alt="Water Schematic" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<p>Above is a physical and sensor schematic of the water line. We used a total of 10 temperature, 2 flow rate, 6 pressure, 3 energy in/out, and 1 system efficiency sensor for all of our data collection.</p>
+									<p>The water line was tricky because it contained so many small pieces, each of which served different functions and needed to fit perfectly. With 3 different types of NPT fittings we managed to connect everything together. </p>
+									<h5>Calculations</h5>
+									<p>I did some calculations on an ideal vapor compression cycle, which is just technical engineering jargon for "what we expect the heat pump to do when we turn it on." Below is a table for what that looks like.</p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Screenshot 2024-07-07 at 11.22.20 PM.png" alt="Ideal Vapor Compression Cycle Calculations" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<p>If you're curious for a more in-depth engineering analysis of how I calculated all of these values, I have an <a href="#appendix-calculations">appendix at the bottom</a> that walks you through that.</p>
 									<h4>Order Parts</h4>
-									<p></p>
-
+									<p>Here's a <del>short</del> list of everything we ordered.</p>
+									<table>
+										<tr>
+										  <th>Component Name</th>
+										  <th>Quantity</th>
+										  <th>Price</th>
+										</tr>
+										<tr>
+										  <td>½’’ Copper Pressure Cup x MIP Male Adapter Fitting</td>
+										  <td>4</td>
+										  <td>$8.52</td>
+										</tr>
+										<tr>
+										  <td>½’’ Sch 40 PVC Tee Fipt</td>
+										  <td>4</td>
+										  <td>$7.44</td>
+										</tr>
+										<tr>
+										  <td>½’’ MNPT x ¼’’ FNPT Schedule 40 White PVC Threaded Reducing Bushing</td>
+										  <td>4</td>
+										  <td>$9.44</td>
+										</tr>
+										<tr>
+										  <td>½’’ x 3/8’’ Sch 40 PVC Reducing Female Adapter – Soc x Fipt</td>
+										  <td>2</td>
+										  <td>$1.52</td>
+										</tr>
+										<tr>
+										  <td>Pipe Plug Thermocouple Probes with NPT Fitting and Lead Wire</td>
+										  <td>2</td>
+										  <td>$151.80</td>
+										</tr>
+										<tr>
+										  <td>Twidec/2Pcs ¼’’ Screw Probe Temperature Sensor K Type Thermocouple 2 Meters Cable</td>
+										  <td>2</td>
+										  <td>$23.98</td>
+										</tr>
+										<tr>
+										  <td>8 Channel Handheld Thermocouple Thermometer/Data Logger</td>
+										  <td>1</td>
+										  <td>$398.39</td>
+										</tr>
+										<tr>
+										  <td>Igloo Portable Sports Cooler Water Beverage Dispenser With Flat Seat Lid</td>
+										  <td>2</td>
+										  <td>$33.98</td>
+										</tr>
+										<tr>
+										  <td>10 Set K type Thermocouple M/F Temperature Testing Probe Connector</td>
+										  <td>1</td>
+										  <td>$17.59</td>
+										</tr>
+										<tr>
+										  <td>Aquasol Plumbing Solder, Silver Bearing, ½ Lb Spool</td>
+										  <td>1</td>
+										  <td>$14.85</td>
+										</tr>
+										<tr>
+										  <td>Plumbers PTFE Pipe Sealant Tape Flex Seal Tape Waterproof</td>
+										  <td>1</td>
+										  <td>$3.99</td>
+										</tr>
+										<tr>
+										  <td>Brass Bulkhead Fitting – 3/8’’ NPT Female x ½’’ Straight Male Thread Tank Connector with 2 Rubber Rings for Water Tower Tank Barrels</td>
+										  <td>2</td>
+										  <td>$17.98</td>
+										</tr>
+										<tr>
+										  <td>3/8’’ Gray PVC On/Off</td>
+										  <td>2</td>
+										  <td>$15.58</td>
+										</tr>
+										<tr>
+										  <td>3PCS Brass Reducer Adapter, 3/8’’ NPT Female to ½’’ NPT Female Thread, Hex Reducing Pipe Fitting Coupler Nipple Connector for Water/Oil/Gas</td>
+										  <td>1</td>
+										  <td>$10.99</td>
+										</tr>
+										<tr>
+										  <td>24V 25A Power Supply</td>
+										  <td>1</td>
+										  <td>$59.90</td>
+										</tr>
+										<tr>
+										  <td>T38 Model Compressor</td>
+										  <td>1</td>
+										  <td>$725</td>
+										</tr>
+										<tr>
+										  <td>Steel Plate Heat Exchanger</td>
+										  <td>2</td>
+										  <td>$550</td>
+										</tr>
+										<tr>
+										  <td>Sanhe Expansion Valve and Stator Coil</td>
+										  <td>1</td>
+										  <td>$65</td>
+										</tr>
+										<tr>
+										  <td>Turbine Flow Meter</td>
+										  <td>2</td>
+										  <td>$186.70</td>
+										</tr>
+										<tr>
+										  <td>Copper Pipe Temperature Sensor</td>
+										  <td>6</td>
+										  <td>$44.16</td>
+										</tr>
+										<tr>
+										  <td>Water Pump</td>
+										  <td>2</td>
+										  <td>$48.58</td>
+										</tr>
+										<tr>
+										  <td>Copper Pipe ¼"</td>
+										  <td>6’</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>¼’’ Flare Charge Port</td>
+										  <td>2</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Marine Adhesive</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Dish Soap</td>
+										  <td>N/A</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Vacuum Pump</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Blow Torch</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Pipe Cutter</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Pipe Bender</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>½’’ Hose</td>
+										  <td>6’</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+									  </table>
 
 									<h4>Build</h4>
-									<p></p>
-
-
-									<h4>Modify</h4>
-									<p></p>
-
+									<p>Building this rig was SOOO much fun. I had a blast seeing everything finally come into fruition.</p>
+									<p>We soldered copper. Probably the most badass thing I've done at Cooper.</p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-6" style="display: flex; justify-content: center;">
+											<span class="image fit" style="display: flex; justify-content: center;">
+											  <img src="../images/HP/IMG_2267.gif" alt="Water Loop Gif" style="display: block; max-width: 100%; height: auto;" />
+											</span>
+										  </div>
+										<div class="col-6" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2269.gif" alt="Refrigerant Loop Gif" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-6" style="display: flex; justify-content: center;">
+											<span class="image fit" style="display: flex; justify-content: center;">
+											  <img src="../images/HP/IMG_2264.JPG" alt="Water Loop" style="display: block; max-width: 100%; height: auto;" />
+											</span>
+										  </div>
+										<div class="col-6" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2270.JPG" alt="Refrigerant Loop" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-12" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2374.JPG" alt="Testing for leaks" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<p>For safety measures we tested the refrigerant line for any leaks. Standard procedure is to add soapy water into the line pressurize it and see if any bubbles form at potential leak spots. Luckily we didn't see any bubbles form so we were finally ready to add refrigerant to the system.</p>
 
 									<h4>Results</h4>
-									<p></p>
-
+									<p>We ran out of semester before we ran out of ideas to implement into the heat pump rig. A couple of the things we didn’t and wish we had more time for include: making the rig more educational (adding visuals and labels), creating a power supply from scratch to be able to all components using a central power source, and finally adding a small LED display which showed all of the readable parameters updating in real time.</p>
+									<p>Here’s what our final rig looked like, as well as some of the readable parameters I was able to get with a laptop connected directly to our DAQ (Data Acquisition Unit).</p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-12" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2290.JPG" alt="Final Rig" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2322.JPG" alt="DAQ" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<br>
+									<h4 id="appendix-calculations">Appendix: Example Vapor Compression Cycle Calculation</h4>
+									<p>To summarize the calculation process of the heat pump in terms of a refrigeration cycle, we start by gathering data from the manufacturer's specifications. For instance, if we have a compressor that can push 13 grams per second of refrigerant and can produce a pressure of 1,400 kPa with a required suction pressure of 600 kPa, we input these values into our calculations. Remember that with those three initial conditions we can calculate the rest of the refrigeration system. </p>
+									<p>m' = 13 g/s, P_outlet = 1,400 kPa, P_inlet = 600 kPa </p>
+									<p>First, we determine the properties of the refrigerant at different stages of the cycle. For example, at stage 4, between the evaporator and the compressor, we know the pressure and that it's a saturated vapor. We use R-134a thermodynamic properties tables to find the corresponding temperature, enthalpy, and entropy at this pressure. </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Screenshot 2024-07-07 at 11.29.56 PM.png" alt="" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<h6 style="text-align: center;">R-134a Thermodynamic Properties Table (Saturated Vapor)</h6>
+									<br>
+									<p>P_inlet = P_4 = 600kPa, T_4 = 21.6 oC, h_4 = 262.4 kg/kJ, s_4 = 0.9219 kJ/kg/K, quality = 1 </p>
+									<p>Moving to stage 1, leaving the compressor, we need to consider the isentropic nature of the process, where the entropy at stage 1 equals that at stage 4. We then use superheated vapor tables to find the enthalpy and temperature at this pressure and entropy.  </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Screenshot 2024-07-07 at 11.32.59 PM.png" alt="" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<h6 style="text-align: center;">R-134a Thermodynamic Properties Table (Superheated Vapor)</h6>
+									<br>
+									<p>The entropy we are looking for is 0.9219. However, looking at the Superheated Vapor list, we can’t find that specific value, it’s between two values, so we linearly interpolate the values. </p>
+									<p>Doing this for each of the units we get,</p>
+									<p>P_1 = 1,400kPa, T_1 = 55.4 oC, h_1 = 279.8 kg/kJ, s_1 = 0.9219 kJ/kg/K, quality = N/A </p>
+									<p>At stage 2, before the expansion valve, we know the pressure is the same as stage 1, but it's a saturated liquid. Using the saturated liquid tables, we find the temperature, enthalpy, and entropy. </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Screenshot 2024-07-07 at 11.33.08 PM.png" alt="" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<h6 style="text-align: center;">R-134a Thermodynamic Properties Table (Superheated Vapor)</h6>
+									<br>
+									<p>P_2 = 1,400kPa, T_1 = 52.4 oC, h_1 = 127.3 kg/kJ, s_1 = 0.4533 kJ/kg/K, quality = 0 </p>
+									<p>Stage 3, after the expansion valve, is trickier as it's a mixture of liquid and vapor. We find the temperature using the temperature at stage 4, and the enthalpy remains constant from stage 2. Knowing the pressure, we determine the entropy by first finding the quality of the refrigerant, indicating how much is liquid or vapor, and then using this to find the entropy. </p>
+									<p>Quality is found with this equation, </p>
+									<p>𝑥4=ℎ4−ℎ𝑓ℎ𝑔−ℎ𝑓
+										𝑥
+										4
+										=
+										ℎ
+										4
+										−
+										ℎ
+										𝑓
+										ℎ
+										𝑔
+										−
+										ℎ
+										𝑓
+										 
+										, the hf = 81.5, sf = 0.308, hg, 262.4, sg, 0.9219, so x4 = 0.253178552 </p>
+									<p>Finally we calculate entropy using, </p>
+									<p>s_4 = s_f + x_4 * (s_g - s_f)</p>
+									<p>With the properties of the refrigerant at each stage determined, we can calculate various parameters, such as the work done by the compressor, the cooling load on the evaporator, and the heat rejection by the condenser. These calculations help us evaluate the efficiency of the system, often expressed as the coefficient of performance (COP), which relates the cooling provided to the work done by the compressor. </p>
+									<p>Work done by compressor, evaporator cooling load, condenser heat rejection, and coefficient of performance, </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-4" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Screenshot 2024-07-07 at 11.33.34 PM.png" alt="" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<p>W_compressor = 360 W, W_Evaporator = 910 W, W_Condenser = 1270 W COP = 3.9 </p>
 								</div>
 							</section>
 					</div>
