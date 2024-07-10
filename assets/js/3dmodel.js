@@ -23,12 +23,12 @@ camera.position.set(4, 12, 9);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.enablePan = false;
-controls.minDistance = 5;
-controls.maxDistance = 20;
+controls.minDistance = 2;
+controls.maxDistance = 10;
 controls.minPolarAngle = 0.5;
 controls.maxPolarAngle = 1.5;
 controls.autoRotate = false;
-controls.target = new THREE.Vector3(0, 1, 0);
+controls.target = new THREE.Vector3(1, 1, 2);
 controls.update();
 
 const groundGeometry = new THREE.PlaneGeometry(20, 20, 32, 32);
@@ -45,7 +45,7 @@ scene.add(groundMesh);
 const spotLight = new THREE.SpotLight(0xffffff, 3000, 100, 0.42, 1);
 spotLight.position.set(0, 25, 0);
 spotLight.castShadow = true;
-spotLight.shadow.bias = -0.0001;
+spotLight.shadow.bias = -0.01;
 scene.add(spotLight);
 
 const loader = new GLTFLoader().setPath('../images/RETRO/');
@@ -61,7 +61,7 @@ loader.load('Outside-Patio-Model.gltf', (gltf) => {
   });
 
   mesh.scale.set(17, 17, 17); // Scale up the model
-  mesh.position.set(-13, 0, 11);
+  mesh.position.set(-13, 0.1, 11);
   scene.add(mesh);
 
   document.getElementById('progress-container').style.display = 'none';
