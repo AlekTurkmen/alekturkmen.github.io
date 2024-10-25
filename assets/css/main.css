@@ -2663,7 +2663,7 @@ input, select, textarea {
 /* Apply grid layout to .features */
 .features {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Set up 2-column layout */
+    grid-template-columns: repeat(3, 1fr); /* Set up 2-column layout */
     gap: 20px;
     width: 100%; /* Adjust based on available space */
     box-sizing: border-box;
