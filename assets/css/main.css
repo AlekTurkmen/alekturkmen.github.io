@@ -2652,38 +2652,66 @@ input, select, textarea {
 
 /* Features */
 
-	.features article {
-		border-top: solid 3px #f4f4f4;
-		margin-bottom: 2.25em;
-		padding-top: 2.25em;
-	}
+/* Container grid setup */
+.grid-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the .features grid */
+    padding: 20px;
+}
 
-		.features article:first-child {
-			border-top: 0;
-			padding-top: 0;
-		}
+/* Apply grid layout to .features */
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Set up 2-column layout */
+    gap: 20px;
+    width: 100%; /* Adjust based on available space */
+    box-sizing: border-box;
+}
 
-		.features article .image {
-			display: inline-block;
-			padding-right: 2.5em;
-			vertical-align: middle;
-			width: 48%;
-		}
+/* Article styling remains as previously defined */
+.features article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+}
 
-			.features article .image img {
-				display: block;
-				width: 100%;
-			}
+.features article:hover {
+    transform: scale(1.05);
+}
 
-		.features article .inner {
-			display: inline-block;
-			vertical-align: middle;
-			width: 50%;
-		}
+/* Image styling */
+.features .image img {
+    width: 100%;
+    height: auto;
+}
 
-			.features article .inner > :last-child {
-				margin-bottom: 0;
-			}
+/* Text content */
+.features .inner {
+    padding: 15px;
+    text-align: center;
+}
+
+.features p {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* stack items on smaller screens */
+    }
+}
+
 
 /* Header */
 
