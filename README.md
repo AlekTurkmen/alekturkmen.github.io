@@ -1,1 +1,0 @@
-# alekturkmen.github.io
