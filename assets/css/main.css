@@ -2657,7 +2657,7 @@ input, select, textarea {
     width: 100%;
     display: flex;
     justify-content: center; /* Center the .features grid */
-    padding: 20px;
+    padding: 0px;
 }
 
 /* Apply grid layout to .features */
@@ -2711,6 +2711,21 @@ input, select, textarea {
     font-size: 0.9em;
     margin-top: 10px;
 }
+
+/* Adjust padding in .inner to control spacing */
+.features .inner {
+    padding: 10px 15px 15px; /* Reduces bottom padding */
+    text-align: center;
+}
+
+/* Remove or adjust margin in paragraph */
+.features p {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+    margin-bottom: 0; /* Remove bottom margin to reduce space */
+}
+
 
 /* Responsive for smaller screens */
 @media (max-width: 768px) {
