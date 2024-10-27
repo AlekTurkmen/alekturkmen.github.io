@@ -2700,21 +2700,9 @@ input, select, textarea {
     height: auto;
 }
 
-/* Text content */
-.features .inner {
-    padding: 15px;
-    text-align: center;
-}
-
-.features p {
-    color: #666;
-    font-size: 0.9em;
-    margin-top: 10px;
-}
-
 /* Adjust padding in .inner to control spacing */
 .features .inner {
-    padding: 10px 15px 15px; /* Reduces bottom padding */
+    padding: 10px 10px 15px; /* Reduces bottom padding */
     text-align: center;
 }
 
@@ -2722,7 +2710,7 @@ input, select, textarea {
 .features p {
     color: #666;
     font-size: 0.9em;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 0; /* Remove bottom margin to reduce space */
 }
 
