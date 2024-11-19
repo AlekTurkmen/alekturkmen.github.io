@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Alek Turkmen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="../images/favicon.ico" type="../image/x-icon">
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<div id="titleBar">
+			<span class="title">
+					<a href="../index.html#"> ← Back To Homepage</a>
+			</span>
+		</div>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<a href="../index.html#"> <span class="image avatar"><img src="../images/avatar.jpg" alt="Alek Turkmen" /></span></a>
+					<h1 id="logo"><a href="../index.html#">Alek Turkmen</a></h1>
+					<p>Founder | Engineer @ Cooper Union</p>
+				</header>
+				<nav id="nav">
+					<ul>
+						<!--<li><a href="#one" class="active">About</a></li>-->
+						<!--Hidden skills section-->
+						<!--<li><a href="index.html#two">Skills</a></li>-->
+						<li><a href="../index.html#projects">Projects</a></li>
+						<li><a href="../index.html#blogs">Blogs</a></li>
+						<li><a href="../index.html#experiences">Experiences</a></li>
+						<li><a href="../index.html#resume">Resume</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/alekturkmen/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://www.instagram.com/alekturkmen/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/AlekTurkmen" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto:aleknturkmen@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="image main" data-position="center">
+									<img src="../images/FF/Game Banner.JPG" alt="Flag Frenzy Being Played" />
+								</div>
+								<div class="container">
+									<header class="major">
+										<h3 style="color: #86cdcf !important;">Flag Frenzy</h3>
+										<p>April 2023</p>
+									</header>
+									
+									<p>A cryptic and ominous 6 player game inspired by Duck Duck Goose, Capture the Flag, and Proximity Sensors.</p>
+									<hr />
+									<p>As a mechanical engineer at The Cooper Union, the curriculum has me take <a href="https://cooper.edu/engineering/courses/mechanical-engineering-undergraduate/me-211" target="_blank">ME 211 Design and Prototyping</a> taught by Professor Eric Lima. I’m now at the end of the semester where the class is coming to a close and so our final project, Flag Frenzy, is ready to show off. </p>
+									<p>Here is a video of our game being played:</p>
+									<iframe width="100%" height="540" src="https://www.youtube.com/embed/NXhg0Tb4EIM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+									<p><br/> Our professor loved the game so much that he asked us to use it as an example for next year’s class. If you would like to learn more about Flag Frenzy, below, I go into the design process and a bit about game theory.</p>
+									<hr />
+									<h4>Creating the Game</h4>
+									<p>On our first day of the class, Prof. Lima asked us to make groups of four. I made a group with Akil Foster, Jude Pizzone, and Aymane Saissi. Our task was to create an enjoyable and captivating multiplayer game that we could potentially sell to a market. In the first week, we presented our game for the class to play, and every subsequent week, we showcased an updated version of the game. During these presentations, we exchanged feedback with our classmates, aiming to improve the game each time. Throughout the iterations, I discovered the delicate equilibrium between making the game fun while also maintaining an appropriate level of challenge.</p>
+									<p>The first week we presented a combination of Tag + Capture the Flag and the class loved it. The second week, we attempted an 8-player version of tic-tac-toe, but it turned out to be overly complicated. The third week, we came up with an interesting twist on Minesweeper, the classic single-player puzzle game from 1989. And finally, in the fourth week, we tried a competitive water drinking game. After exploring these four different game types, we ultimately decided to stick with the first one, as it received the most positive response from the class.</p>
+									<p>And here are the rules: The game is a round based game where 2 players are chosen randomly. One of the chosen players is the <span style="color: blue;">rabbit</span> and the other is the <span style="color: red;">fox</span>. The <span style="color: red;">fox</span> gets a point if they catch the <span style="color: blue;">rabbit</span> before 20 seconds is up. The <span style="color: blue;">rabbit</span> gets a point if they survive without being tagged for 20 seconds. A player wins once they get 5 points.</p>
+									<p>Although the rules are simple, the intentionally long choosing time and flipping nature of the roles makes Flag Frenzy very exciting and fun to play over and over again.</p>
+									<hr />
+									<h4>Coding the Game</h4>
+									<p>Initially, we programmed the game virtually using tinkercad to verify the code's logical functioning. The coding process was relatively straightforward. It involved assigning a distinct LED to each of the six players and incorporating a corresponding proximity sensor for each player as well. Through this setup, the game randomly designated one player as the "fox" and another as the "rabbit" based on the detection of nearby players within the proximity range of the sensor. The fox was to catch and tag the rabbit before the time ran out, and inversely the rabbit was to run away from the fox until the time ran out. The way we verified who caught/escaped who was by checking the proximity sensors if they detected that the players had sat back down. If the player did not return, the program would take them out of the pool of current players. </p>
+									<div style="text-align: center;">
+										<img src="../images/FF/Coding the Game.PNG" alt="Coding the Game" width="469" height="315"> <!--Original is 938 x 629-->
+										</div>
+									<hr />
+									<h4>Game Design</h4>
+									<p>Finding the right balance between fun and difficulty can be quite challenging. Initially, everyone aims to make their game as enjoyable as possible. They want to create an undeniable sense of fun, with satisfying gameplay and plenty of dopamine-inducing moments for players. However, there's a catch— if a game is excessively fun, it can become monotonous and lose player interest rather quickly. So, what's the solution? Introducing more difficulty seems like a good idea, right? Well, it's not that simple. If a game lacks sufficient challenge, players won't feel engaged, and if it's overly difficult, players may become discouraged and not want to invest time in learning the mechanics. With this knowledge, we quickly noticed that striking the right balance between fun and difficulty becomes the primary challenge to overcome.</p>
+									<div style="text-align: center;">
+										<img src="../images/FF/Game Design Chart.png" alt="Game Design Chart" width="490" height="415"> <!--Original is 490 x 415-->
+										</div>
+									<p>Credit: gamedev.net</p>
+									<p>After finalizing our game choice, we collaboratively established the game rules. With a clear set of rules in hand, we outlined a plan to develop a prototype with LEDs, design an enclosure, and ensure the game code was flawless.</p>
+									<hr />
+									<h4>Soldering NeoPixels</h4>
+									<p>One of our classmates introduced us to NeoPixels. A type of LED that made our task much simpler. Each individual LED could be located then programmed separate to the rest. All we needed to do after that was cut the LED strip and then solder the pieces back together to increase the distance between the LEDs.</p>
+									<p>I took on the challenge of soldering, despite having no prior experience. After receiving a helpful soldering tutorial from an experienced Electrical Engineer, I felt prepared to make my first attempt. Although I faced some difficulties and even ended up burning my fingers a couple of times, I eventually succeeded in soldering the pieces together. Here's how it turned out:</p>
+									<div style="text-align: center;">
+										<img src="../images/FF/NeoPixel Case.gif" alt="NeoPixel Case" width="360" height="377"> <!--Original is 1080 x 1132-->
+										</div>
+									<p>If anyone was wondering the cookies were great!</p>
+									<hr />
+									<h4>Making the Enclosure</h4>
+									<p>I took on the task of designing the enclosure, and considering that our game accommodated six players, I opted for a hexagonal prism shape. To construct the enclosure, I utilized a black acrylic board and used a laser cutter to create the base, roof, and six walls. To ensure a secure and sturdy structure, I incorporated finger edge joints, allowing the acrylic boards to fit snugly together and then glued together using a strong acrylic adhesive. </p>
+									<div style="text-align: center;">
+										<img src="../images/FF/MakerCase.PNG" alt="Maker Case" width="524" height="448"> <!--Original is 524 x 448-->
+										</div>
+									<hr />
+									<h4>Final Thoughts</h4>
+									<p>Looking back on all of it, my group and I managed to create a thrilling game that was both genuinely loved and admired by our classmates. The collective work we put into this project was worth the satisfaction we received at the end.</p>
+									<div style="text-align: center;">
+										<img src="../images/FF/FinalAcrylicCase.gif" alt="Final Acrylic Case" width="474" height="842"> <!--Original is 474 x 842-->
+										</div>
+								</div>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="icons">
+								<li><a href="https://www.linkedin.com/in/alekturkmen/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://www.instagram.com/alekturkmen/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/AlekTurkmen" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+								<li><a href="mailto:aleknturkmen@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; 2024 Alek Turkmen</li><li>All rights reserved.</li><li>Business: <a href="mailto:aleknturkmen@gmail.com" target="_blank"> aleknturkmen@gmail.com </a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Alek Turkmen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="../images/favicon.ico" type="../image/x-icon">
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<div id="titleBar">
+			<span class="title">
+					<a href="../index.html#"> ← Back To Homepage</a>
+			</span>
+		</div>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<a href="../index.html#"> <span class="image avatar"><img src="../images/avatar.jpg" alt="Alek Turkmen" /></span></a>
+					<h1 id="logo"><a href="../index.html#">Alek Turkmen</a></h1>
+					<p>Founder | Engineer @ Cooper Union</p>
+				</header>
+				<nav id="nav">
+					<ul>
+						<!--<li><a href="#one" class="active">About</a></li>-->
+						<!--Hidden skills section-->
+						<!--<li><a href="index.html#two">Skills</a></li>-->
+						<li><a href="../index.html#projects">Projects</a></li>
+						<li><a href="../index.html#blogs">Blogs</a></li>
+						<li><a href="../index.html#experiences">Experiences</a></li>
+						<li><a href="../index.html#resume">Resume</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/alekturkmen/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://www.instagram.com/alekturkmen/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/AlekTurkmen" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto:aleknturkmen@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="image main" data-position="center">
+									<img src="../images/HP/IMG_2374.JPG" alt="" />
+								</div>
+								<div class="container">
+									<header class="major">
+										<h3 style="color: #86cdcf !important;">Heat Pump Rig</h3>
+										<p>January - May 2024</p>
+									</header>
+									<p>I took a class called ME-360: Engineering Experiments junior spring semester. Our final project was to build a tabletop sized heat pump rig from scratch.</p>
+									<h4>Context</h4>
+									<p>Our assignment was to research, design, review, part orders, build, and modify a tabletop heat pump rig that will be used for educational purposes. The rig will have readable parameters to measure work, efficiency, mass flow rate, temperature, pressure, rpm, coefficient of performance, enthalpy, entropy, quality, and phase of (1) refrigerant loop and (2) water loops. These readable parameters will be compared to varying compressor speeds for students to better understand optimization of heat pump systems. And most importantly it needs to be safe, the refrigerant we were using (as environmentally conscious as it was) is extremely flammable and must be handle by a licensed professional.</p>
+									<p>If you come from an engineering or engineering parallel background feel free to <a href="#product-development-section">skip</a> to the next section. But if you want to learn a little bit more about how a heat pump works the below sections will bring you up to speed. </p>
+									<h3>How Does A Heat Pump Work? (In 5 Levels Of Increasing Complexity)</h3>
+									<h4>Level 1 - Overview</h4>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-12" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Level1.png" alt="Level 1" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<p>Our heat pump has 3 closed off loops that run counter flow to each other. The arrows in the diagram represent the direction of flow. The central loop is filled with a mostly liquid refrigerant. And the loops on the left and right are water loops (left is hot water, right is cold water). The loops meet at the two rectangular boxes, these are called the heat exchangers and its where all the energy transfer happens. A heat pump is a constant cycle of removing the right side of its heat and supplying the left side with that heat.  </p>
+									<h4>Level 2 - Overview</h4>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-12" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Level2.png" alt="Level 2" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<p>A better way of describing this heat is with thermal and electrical energy. As the saying goes, “you have to spend money to make money” this also applies to heat pumps in that “in order to move heat you must first add more heat to the system.” </p>
+									<p>I want to first point your attention to the electric energy being inputted into the system. You might be asking yourself, why on Earth are we adding electrical energy? The electrical energy is what keeps the refrigerant flowing and makes sure the heat keeps moving through the system. </p>
+									<p>A cool way of thinking of this is when you touch a cold piece of metal. It’s cold to the touch because it’s pulling heat out of your hand. I think I’m crazy for this but a good conceptual way to understand thermodynamics is to think of the cold being pulled from your hand and simultaneously pretend to be the cold piece of metal being touched by a hot human hand. </p>
+									<p>If you have a keen eye, you’ll have noticed that the energy input is equal to the energy output.</p>
+									<code style="display: inline-block; padding-top: 5px; padding-bottom: 5px;">
+										Input Q<sub>Cooling</sub> (910 W) + W<sub>Electric</sub> (360 W) = Q<sub>Heating</sub> (1270 W)*
+									</code>
+									<p style="font-size: 12px;">*This is ideal, meaning it won’t actually be 100% efficient like this in the real world.</p>
+									
+									<h4>Level 3 - Overview</h4>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-12" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Level3.png" alt="Level 3" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<p>The heat pump compression cycle involves four key components, each integral to its operation. Beginning with the compressor (top of the diagram), it pressurizes the refrigerant, elevating its temperature to facilitate efficient heat exchange. From there, the refrigerant flows into the condenser, where it releases heat to the surrounding environment, undergoing a phase change from vapor to liquid. Following the condenser, the expansion valve regulates the refrigerant's flow, reducing its pressure and temperature as it enters the evaporator. Finally, in the evaporator, the refrigerant absorbs heat from the designated space, completing the cycle by transitioning back into a vapor state for recirculation through the compressor. </p>
+
+									<h4>Level 4 - Stages</h4>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-12" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/Level4.png" alt="Level 4" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<p>In the heat pump compression cycle, the refrigerant passes through distinct phases. In Stage 1, the Superheated Vapor phase, the refrigerant exits the compressor as a high-temperature, high-pressure vapor. In Stage 2, the Subcooled Liquid phase, it cools in the condenser, reducing its temperature while maintaining pressure. In Stage 3, the Liquid Mixture phase, the refrigerant passes through the expansion valve, lowering its temperature and pressure. Finally, in Stage 4, the Saturated Vapor phase, it absorbs heat in the evaporator, maintaining constant temperature and pressure, preparing for compression again.</p>
+									<p>In the expansion valve a phase change occurs, meaning a substantial amount of the liquid refrigerant turns into vapor. This process is called latent heat, which changes the phase of the substance without changing its temperature. This allows for the transfer of large amounts of energy with relatively small temperature changes.</p>
+
+									<h4>Level 5 - Enthalpy (aka the final boss of thermodynamics)</h4>
+									<p>Kicking the assess of every college engineer that learns about it for the first time, enthalpy has an undefeated track record against college engineers who attempt having a solid conceptual understanding of what it means in the first place. </p>
+									<p>Here is my best attempt and vaguely defining it. Enthalpy is a measure of the total energy of a system, including both its internal energy and the product of its pressure and volume. </p>
+									<p>I bring this up because that’s how we found how much work was being done back at Level 2. Full circle moments are cool. </p>
+									
+									<h3 id="product-development-section">Product Development</h3>
+									<h4>Why Heat Pumps?</h4>
+									<p>They are more efficient than traditional heating or air conditioning methods. </p>
+
+									<h4>Design</h4>
+									<p>Our initial design laid out the separation and formatting we wanted the rig to have. This rig is intended to be used for educational purposes in the future so our aim was not to optimize how much space it took up, so spacing things out would give us more room for graphics and readable parameters. </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/design rig.png" alt="Early Design Rig" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-6" style="display: flex; justify-content: center;">
+											<span class="image fit" style="display: flex; justify-content: center;">
+											  <img src="../images/HP/Level2.png" alt="Refrigerant Schematic" style="display: block; max-width: 100%; height: auto;" />
+											</span>
+										  </div>
+										<div class="col-6" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/screenshot2.png" alt="Water Schematic" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<p>The two loop schematics above are for the refrigerant line (left) and the water line (right). This laid out the basic design of the entire rig. Btw, the water line is duplicated, meaning the hot water line and the cold water line are just mirrored versions of each other. </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-6" style="display: flex; justify-content: center;">
+											<span class="image fit" style="display: flex; justify-content: center;">
+											  <img src="../images/HP/screenshot3.png" alt="Refrigerant Schematic" style="display: block; max-width: 100%; height: auto;" />
+											</span>
+										  </div>
+										<div class="col-6" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/screenshot4.png" alt="Water Schematic" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<p>Above is a physical and sensor schematic of the water line. We used a total of 10 temperature, 2 flow rate, 6 pressure, 3 energy in/out, and 1 system efficiency sensor for all of our data collection.</p>
+									<p>The water line was tricky because it contained so many small pieces, each of which served different functions and needed to fit perfectly. With 3 different types of NPT fittings we managed to connect everything together. </p>
+									<h5>Calculations</h5>
+									<p>I did some calculations on an ideal vapor compression cycle, which is just technical engineering jargon for "what we expect the heat pump to do when we turn it on." Below is a table for what that looks like.</p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/screenshot1.png" alt="Ideal Vapor Compression Cycle Calculations" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<p>If you're curious for a more in-depth engineering analysis of how I calculated all of these values, I have an <a href="#appendix-calculations">appendix at the bottom</a> that walks you through that.</p>
+									<h4>Order Parts</h4>
+									<p>Here's a <del>short</del> list of everything we ordered.</p>
+									<table>
+										<tr>
+										  <th>Component Name</th>
+										  <th>Quantity</th>
+										  <th>Price</th>
+										</tr>
+										<tr>
+										  <td>½’’ Copper Pressure Cup x MIP Male Adapter Fitting</td>
+										  <td>4</td>
+										  <td>$8.52</td>
+										</tr>
+										<tr>
+										  <td>½’’ Sch 40 PVC Tee Fipt</td>
+										  <td>4</td>
+										  <td>$7.44</td>
+										</tr>
+										<tr>
+										  <td>½’’ MNPT x ¼’’ FNPT Schedule 40 White PVC Threaded Reducing Bushing</td>
+										  <td>4</td>
+										  <td>$9.44</td>
+										</tr>
+										<tr>
+										  <td>½’’ x 3/8’’ Sch 40 PVC Reducing Female Adapter – Soc x Fipt</td>
+										  <td>2</td>
+										  <td>$1.52</td>
+										</tr>
+										<tr>
+										  <td>Pipe Plug Thermocouple Probes with NPT Fitting and Lead Wire</td>
+										  <td>2</td>
+										  <td>$151.80</td>
+										</tr>
+										<tr>
+										  <td>Twidec/2Pcs ¼’’ Screw Probe Temperature Sensor K Type Thermocouple 2 Meters Cable</td>
+										  <td>2</td>
+										  <td>$23.98</td>
+										</tr>
+										<tr>
+										  <td>8 Channel Handheld Thermocouple Thermometer/Data Logger</td>
+										  <td>1</td>
+										  <td>$398.39</td>
+										</tr>
+										<tr>
+										  <td>Igloo Portable Sports Cooler Water Beverage Dispenser With Flat Seat Lid</td>
+										  <td>2</td>
+										  <td>$33.98</td>
+										</tr>
+										<tr>
+										  <td>10 Set K type Thermocouple M/F Temperature Testing Probe Connector</td>
+										  <td>1</td>
+										  <td>$17.59</td>
+										</tr>
+										<tr>
+										  <td>Aquasol Plumbing Solder, Silver Bearing, ½ Lb Spool</td>
+										  <td>1</td>
+										  <td>$14.85</td>
+										</tr>
+										<tr>
+										  <td>Plumbers PTFE Pipe Sealant Tape Flex Seal Tape Waterproof</td>
+										  <td>1</td>
+										  <td>$3.99</td>
+										</tr>
+										<tr>
+										  <td>Brass Bulkhead Fitting – 3/8’’ NPT Female x ½’’ Straight Male Thread Tank Connector with 2 Rubber Rings for Water Tower Tank Barrels</td>
+										  <td>2</td>
+										  <td>$17.98</td>
+										</tr>
+										<tr>
+										  <td>3/8’’ Gray PVC On/Off</td>
+										  <td>2</td>
+										  <td>$15.58</td>
+										</tr>
+										<tr>
+										  <td>3PCS Brass Reducer Adapter, 3/8’’ NPT Female to ½’’ NPT Female Thread, Hex Reducing Pipe Fitting Coupler Nipple Connector for Water/Oil/Gas</td>
+										  <td>1</td>
+										  <td>$10.99</td>
+										</tr>
+										<tr>
+										  <td>24V 25A Power Supply</td>
+										  <td>1</td>
+										  <td>$59.90</td>
+										</tr>
+										<tr>
+										  <td>T38 Model Compressor</td>
+										  <td>1</td>
+										  <td>$725</td>
+										</tr>
+										<tr>
+										  <td>Steel Plate Heat Exchanger</td>
+										  <td>2</td>
+										  <td>$550</td>
+										</tr>
+										<tr>
+										  <td>Sanhe Expansion Valve and Stator Coil</td>
+										  <td>1</td>
+										  <td>$65</td>
+										</tr>
+										<tr>
+										  <td>Turbine Flow Meter</td>
+										  <td>2</td>
+										  <td>$186.70</td>
+										</tr>
+										<tr>
+										  <td>Copper Pipe Temperature Sensor</td>
+										  <td>6</td>
+										  <td>$44.16</td>
+										</tr>
+										<tr>
+										  <td>Water Pump</td>
+										  <td>2</td>
+										  <td>$48.58</td>
+										</tr>
+										<tr>
+										  <td>Copper Pipe ¼"</td>
+										  <td>6’</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>¼’’ Flare Charge Port</td>
+										  <td>2</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Marine Adhesive</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Dish Soap</td>
+										  <td>N/A</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Vacuum Pump</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Blow Torch</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Pipe Cutter</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>Pipe Bender</td>
+										  <td>1</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+										<tr>
+										  <td>½’’ Hose</td>
+										  <td>6’</td>
+										  <td>Provided by Cooper</td>
+										</tr>
+									  </table>
+
+									<h4>Build</h4>
+									<p>Building this rig was SOOO much fun. I had a blast seeing everything finally come into fruition.</p>
+									<p>We soldered copper. Probably the most badass thing I've done at Cooper.</p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-6" style="display: flex; justify-content: center;">
+											<span class="image fit" style="display: flex; justify-content: center;">
+											  <img src="../images/HP/IMG_2267.gif" alt="Water Loop Gif" style="display: block; max-width: 100%; height: auto;" />
+											</span>
+										  </div>
+										<div class="col-6" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2269.gif" alt="Refrigerant Loop Gif" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-6" style="display: flex; justify-content: center;">
+											<span class="image fit" style="display: flex; justify-content: center;">
+											  <img src="../images/HP/IMG_2264.JPG" alt="Water Loop" style="display: block; max-width: 100%; height: auto;" />
+											</span>
+										  </div>
+										<div class="col-6" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2270.JPG" alt="Refrigerant Loop" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-12" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2374.JPG" alt="Testing for leaks" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<p>For safety measures we tested the refrigerant line for any leaks. Standard procedure is to add soapy water into the line, pressurize it, and see if any bubbles form at potential leak spots. Luckily we didn't see any bubbles form so we were finally ready to add refrigerant to the system.</p>
+
+									<h4>Results</h4>
+									<p>We ran out of semester before we ran out of ideas to implement into the heat pump rig. A couple of the things we didn’t and wish we had more time for include: making the rig more educational (adding visuals and labels), creating a power supply from scratch to be able to all components using a central power source, and finally adding a small LED display which showed all of the readable parameters updating in real time.</p>
+									<p>Here’s what our final rig looked like, as well as some of the readable parameters I was able to get with a laptop connected directly to our DAQ (Data Acquisition Unit).</p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-12" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2290.JPG" alt="Final Rig" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/IMG_2322.JPG" alt="DAQ" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<br>
+									<h4 id="appendix-calculations">Appendix: Example Vapor Compression Cycle Calculation</h4>
+									<p>To summarize the calculation process of the heat pump in terms of a refrigeration cycle, we start by gathering data from the manufacturer's specifications. For instance, if we have a compressor that can push 13 grams per second of refrigerant and can produce a pressure of 1,400 kPa with a required suction pressure of 600 kPa, we input these values into our calculations. Remember that with those three initial conditions we can calculate the rest of the refrigeration system. </p>
+									<p>m' = 13 g/s, P_outlet = 1,400 kPa, P_inlet = 600 kPa </p>
+									<p>First, we determine the properties of the refrigerant at different stages of the cycle. For example, at stage 4, between the evaporator and the compressor, we know the pressure and that it's a saturated vapor. We use R-134a thermodynamic properties tables to find the corresponding temperature, enthalpy, and entropy at this pressure. </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/screenshot5.png" alt="" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<h6 style="text-align: center;">R-134a Thermodynamic Properties Table (Saturated Vapor)</h6>
+									<br>
+									<p>P_inlet = P_4 = 600kPa, T_4 = 21.6 oC, h_4 = 262.4 kg/kJ, s_4 = 0.9219 kJ/kg/K, quality = 1 </p>
+									<p>Moving to stage 1, leaving the compressor, we need to consider the isentropic nature of the process, where the entropy at stage 1 equals that at stage 4. We then use superheated vapor tables to find the enthalpy and temperature at this pressure and entropy.  </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/screenshot6.png" alt="" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<h6 style="text-align: center;">R-134a Thermodynamic Properties Table (Superheated Vapor)</h6>
+									<br>
+									<p>The entropy we are looking for is 0.9219. However, looking at the Superheated Vapor list, we can’t find that specific value, it’s between two values, so we linearly interpolate the values. </p>
+									<p>Doing this for each of the units we get,</p>
+									<p>P_1 = 1,400kPa, T_1 = 55.4 oC, h_1 = 279.8 kg/kJ, s_1 = 0.9219 kJ/kg/K, quality = N/A </p>
+									<p>At stage 2, before the expansion valve, we know the pressure is the same as stage 1, but it's a saturated liquid. Using the saturated liquid tables, we find the temperature, enthalpy, and entropy. </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-8" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/screenshot7.png" alt="" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<h6 style="text-align: center;">R-134a Thermodynamic Properties Table (Superheated Vapor)</h6>
+									<br>
+									<p>P_2 = 1,400kPa, T_1 = 52.4 oC, h_1 = 127.3 kg/kJ, s_1 = 0.4533 kJ/kg/K, quality = 0 </p>
+									<p>Stage 3, after the expansion valve, is trickier as it's a mixture of liquid and vapor. We find the temperature using the temperature at stage 4, and the enthalpy remains constant from stage 2. Knowing the pressure, we determine the entropy by first finding the quality of the refrigerant, indicating how much is liquid or vapor, and then using this to find the entropy. </p>
+									<p>Quality is found with this equation, </p>
+									<p>𝑥4=ℎ4−ℎ𝑓ℎ𝑔−ℎ𝑓
+										𝑥
+										4
+										=
+										ℎ
+										4
+										−
+										ℎ
+										𝑓
+										ℎ
+										𝑔
+										−
+										ℎ
+										𝑓
+										 
+										, the hf = 81.5, sf = 0.308, hg, 262.4, sg, 0.9219, so x4 = 0.253178552 </p>
+									<p>Finally we calculate entropy using, </p>
+									<p>s_4 = s_f + x_4 * (s_g - s_f)</p>
+									<p>With the properties of the refrigerant at each stage determined, we can calculate various parameters, such as the work done by the compressor, the cooling load on the evaporator, and the heat rejection by the condenser. These calculations help us evaluate the efficiency of the system, often expressed as the coefficient of performance (COP), which relates the cooling provided to the work done by the compressor. </p>
+									<p>Work done by compressor, evaporator cooling load, condenser heat rejection, and coefficient of performance, </p>
+									<div class="row gtr-50 gtr-uniform" style="display: flex; justify-content: center; align-items: center;">
+										<div class="col-4" style="display: flex; justify-content: center;">
+										  <span class="image fit" style="display: flex; justify-content: center;">
+											<img src="../images/HP/screenshot8.png" alt="" style="display: block; max-width: 100%; height: auto;" />
+										  </span>
+										</div>
+									</div>
+									<br>
+									<p>W_compressor = 360 W, W_Evaporator = 910 W, W_Condenser = 1270 W COP = 3.9 </p>
+								</div>
+							</section>
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="icons">
+								<li><a href="https://www.linkedin.com/in/alekturkmen/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://www.instagram.com/alekturkmen/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/AlekTurkmen" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+								<li><a href="mailto:aleknturkmen@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; 2024 Alek Turkmen</li><li>All rights reserved.</li><li>Business: <a href="mailto:aleknturkmen@gmail.com" target="_blank"> aleknturkmen@gmail.com </a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
