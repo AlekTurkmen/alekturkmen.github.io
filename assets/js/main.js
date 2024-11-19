@@ -1,3 +1,5 @@
+console.log('main.js loaded');
+
 (function($) {
 
 	var $window = $(window),
@@ -7,7 +9,8 @@
 		$nav = $('#nav'),
 		$wrapper = $('#wrapper');
 
-	// Breakpoints.
+	// Make sure breakpoints is defined before using it
+	if (typeof breakpoints !== 'undefined') {
 		breakpoints({
 			xlarge:   [ '1281px',  '1680px' ],
 			large:    [ '1025px',  '1280px' ],
@@ -15,6 +18,7 @@
 			small:    [ '481px',   '736px'  ],
 			xsmall:   [ null,      '480px'  ],
 		});
+	}
 
 	// Play initial animations on page load.
 		$window.on('load', function() {
@@ -149,37 +153,5 @@
 
 			}
 		});
-
-	// Sleep Percentage Animation
-	function easeOutQuart(x) {
-		return 1 - Math.pow(1 - x, 4);
-	}
-
-	function animatePercentage() {
-		const duration = 4000;
-		const start = 25;
-		const end = 0;
-		const element = document.getElementById('sleepPercentage');
-		const startTime = performance.now();
-
-		function update(currentTime) {
-			const elapsed = currentTime - startTime;
-			const progress = Math.min(elapsed / duration, 1);
-
-			const easedProgress = easeOutQuart(progress);
-			const current = start - (easedProgress * (start - end));
-			
-			element.textContent = current.toFixed(2);
-
-			if (progress < 1) {
-				requestAnimationFrame(update);
-			}
-		}
-
-		requestAnimationFrame(update);
-	}
-
-	// Start animation when page loads
-	$(document).ready(animatePercentage);
 
 })(jQuery);
