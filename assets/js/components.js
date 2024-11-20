@@ -3,7 +3,25 @@ class Components {
         try {
             const response = await fetch(componentPath);
             const html = await response.text();
-            document.getElementById(elementId).innerHTML = html;
+            
+            // Check if we're in a subdirectory and how deep
+            const pathParts = window.location.pathname.split('/');
+            const isDoubleSubdirectory = pathParts.includes('streaming') || pathParts.includes('other-double-nested-dir');
+            const isSubdirectory = window.location.pathname.includes('/projects/') || 
+                                 window.location.pathname.includes('/experiences/') ||
+                                 window.location.pathname.includes('/blogs/');
+            
+            // Modify paths based on directory depth
+            let modifiedHtml = html;
+            if (isDoubleSubdirectory) {
+                modifiedHtml = html.replace(/href="#/g, 'href="../../index.html#')
+                                 .replace(/src="images\//g, 'src="../../images/');
+            } else if (isSubdirectory) {
+                modifiedHtml = html.replace(/href="#/g, 'href="../index.html#')
+                                 .replace(/src="images\//g, 'src="../images/');
+            }
+            
+            document.getElementById(elementId).innerHTML = modifiedHtml;
 
             // Re-initialize the header specific JavaScript
             if (elementId === 'headerComponent') {
