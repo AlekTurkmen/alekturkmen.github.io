@@ -31,51 +31,43 @@ class Components {
                     const $nav = $('#nav');
                     const $nav_a = $nav.find('a');
 
-                    // Reinitialize nav links
+                    // Reinitialize nav links with modified click handler
                     $nav_a
                         .addClass('scrolly')
-                        .on('click', function() {
+                        .on('click', function(e) {
+                            e.preventDefault();
                             var $this = $(this);
+                            const targetId = $this.attr('data-scroll');
 
-                            // External link? Bail.
-                            if ($this.attr('href').charAt(0) != '#')
-                                return;
+                            // Check if we're on a subpage
+                            const isSubpage = window.location.pathname.includes('/projects/') || 
+                                             window.location.pathname.includes('/experiences/') ||
+                                             window.location.pathname.includes('/blogs/');
 
-                            // Deactivate all links.
-                            $nav_a.removeClass('active');
+                            if (isSubpage) {
+                                // If on a subpage, navigate back to main page with section
+                                const depth = window.location.pathname.split('/').length - 2;
+                                const prefix = '../'.repeat(depth);
+                                // Store the target section in sessionStorage
+                                sessionStorage.setItem('scrollTarget', targetId);
+                                window.location.href = prefix + 'index.html';
+                            } else {
+                                // On main page, scroll to section
+                                const $targetSection = $('#' + targetId);
+                                if ($targetSection.length) {
+                                    $('html, body').animate({
+                                        scrollTop: $targetSection.offset().top - ($('#titleBar').height() || 0)
+                                    }, 1000);
 
-                            // Activate link *and* lock it
-                            $this
-                                .addClass('active')
-                                .addClass('active-locked');
-                        })
-                        .each(function() {
-                            var $this = $(this),
-                                id = $this.attr('href'),
-                                $section = $(id);
+                                    // Deactivate all links
+                                    $nav_a.removeClass('active');
 
-                            // No section for this link? Bail.
-                            if ($section.length < 1)
-                                return;
-
-                            // Scrollex
-                            $section.scrollex({
-                                mode: 'middle',
-                                top: '5vh',
-                                bottom: '5vh',
-                                initialize: function() {
-                                    $section.addClass('inactive');
-                                },
-                                enter: function() {
-                                    $section.removeClass('inactive');
-                                    if ($nav_a.filter('.active-locked').length == 0) {
-                                        $nav_a.removeClass('active');
-                                        $this.addClass('active');
-                                    }
-                                    else if ($this.hasClass('active-locked'))
-                                        $this.removeClass('active-locked');
+                                    // Activate link *and* lock it
+                                    $this
+                                        .addClass('active')
+                                        .addClass('active-locked');
                                 }
-                            });
+                            }
                         });
 
                     // Initialize panel
@@ -97,6 +89,25 @@ class Components {
                             if (breakpoints.active('<=medium'))
                                 return $('#titleBar').height();
                             return 0;
+                        }
+                    });
+
+                    // Add this after the nav click handler
+                    $('.home-link').on('click', function(e) {
+                        e.preventDefault();
+                        const isSubpage = window.location.pathname.includes('/projects/') || 
+                                         window.location.pathname.includes('/experiences/') ||
+                                         window.location.pathname.includes('/blogs/');
+                        
+                        if (isSubpage) {
+                            const depth = window.location.pathname.split('/').length - 2;
+                            const prefix = '../'.repeat(depth);
+                            window.location.href = prefix + 'index.html';
+                        } else {
+                            // On main page, scroll to top
+                            $('html, body').animate({
+                                scrollTop: 0
+                            }, 1000);
                         }
                     });
                 }

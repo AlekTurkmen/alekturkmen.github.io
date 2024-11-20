@@ -24,6 +24,23 @@ console.log('main.js loaded');
 		$window.on('load', function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
+				
+				// Check for stored scroll target
+				const scrollTarget = sessionStorage.getItem('scrollTarget');
+				if (scrollTarget) {
+					const $targetSection = $('#' + scrollTarget);
+					if ($targetSection.length) {
+						// Small delay to ensure everything is loaded
+						setTimeout(() => {
+							$('html, body').animate({
+								scrollTop: $targetSection.offset().top - ($titleBar.height() || 0)
+							}, 1000);
+							
+							// Clear the stored target
+							sessionStorage.removeItem('scrollTarget');
+						}, 100);
+					}
+				}
 			}, 100);
 		});
 
@@ -59,18 +76,27 @@ console.log('main.js loaded');
 
 			$nav_a
 				.addClass('scrolly')
-				.on('click', function() {
-
+				.on('click', function(e) {
+					e.preventDefault();
 					var $this = $(this);
 
 					// External link? Bail.
 						if ($this.attr('href').charAt(0) != '#')
 							return;
 
+					// Get target section
+					var targetId = $this.attr('href').substring(1);
+					var $targetSection = $('#' + targetId);
+
+					// Scroll to section
+					$('html, body').animate({
+						scrollTop: $targetSection.offset().top - ($titleBar.height() || 0)
+					}, 1000);
+
 					// Deactivate all links.
 						$nav_a.removeClass('active');
 
-					// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
+					// Activate link *and* lock it
 						$this
 							.addClass('active')
 							.addClass('active-locked');
