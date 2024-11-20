@@ -178,6 +178,8 @@ console.log('main.js loaded');
 				return 0;
 
 			}
+		}).on('click', function(e) {
+			e.preventDefault();
 		});
 
 })(jQuery);

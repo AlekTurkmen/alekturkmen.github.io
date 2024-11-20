@@ -14,10 +14,10 @@ class Components {
             // Modify paths based on directory depth
             let modifiedHtml = html;
             if (isDoubleSubdirectory) {
-                modifiedHtml = html.replace(/href="#/g, 'href="../../index.html#')
+                modifiedHtml = html.replace(/href="#/g, 'href="../../index.html')
                                  .replace(/src="images\//g, 'src="../../images/');
             } else if (isSubdirectory) {
-                modifiedHtml = html.replace(/href="#/g, 'href="../index.html#')
+                modifiedHtml = html.replace(/href="#/g, 'href="../index.html')
                                  .replace(/src="images\//g, 'src="../images/');
             }
             
