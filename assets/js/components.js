@@ -14,11 +14,17 @@ class Components {
             // Modify paths based on directory depth
             let modifiedHtml = html;
             if (isDoubleSubdirectory) {
-                modifiedHtml = html.replace(/href="#/g, 'href="../../index.html')
-                                 .replace(/src="images\//g, 'src="../../images/');
+                modifiedHtml = html
+                    .replace(/src="images\//g, 'src="../../images/')
+                    .replace(/src="([^"]*avatar\.jpg)"/g, 'src="../../images/avatar.jpg"')
+                    .replace(/href="([^"]+)\.html/g, 'href="$1/')
+                    .replace(/href="javascript:void\(0\)"/g, 'href="../../"');
             } else if (isSubdirectory) {
-                modifiedHtml = html.replace(/href="#/g, 'href="../index.html')
-                                 .replace(/src="images\//g, 'src="../images/');
+                modifiedHtml = html
+                    .replace(/src="images\//g, 'src="../images/')
+                    .replace(/src="([^"]*avatar\.jpg)"/g, 'src="../images/avatar.jpg"')
+                    .replace(/href="([^"]+)\.html/g, 'href="$1/')
+                    .replace(/href="javascript:void\(0\)"/g, 'href="../"');
             }
             
             document.getElementById(elementId).innerHTML = modifiedHtml;
