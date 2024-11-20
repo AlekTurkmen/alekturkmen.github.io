@@ -16,32 +16,7 @@
 		</div>
 
 		<!-- Header -->
-			<section id="header">
-				<header>
-					<a href="../index.html#"> <span class="image avatar"><img src="../images/avatar.jpg" alt="Alek Turkmen" /></span></a>
-					<h1 id="logo"><a href="../index.html#">Alek Turkmen</a></h1>
-					<p>Founder | Engineer @ Cooper Union</p>
-				</header>
-				<nav id="nav">
-					<ul>
-						<!--<li><a href="#one" class="active">About</a></li>-->
-						<!--Hidden skills section-->
-						<!--<li><a href="index.html#two">Skills</a></li>-->
-						<li><a href="../index.html#projects">Projects</a></li>
-						<li><a href="../index.html#blogs">Blogs</a></li>
-						<li><a href="../index.html#experiences">Experiences</a></li>
-						<li><a href="../index.html#resume">Resume</a></li>
-					</ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-						<li><a href="https://www.linkedin.com/in/alekturkmen/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-						<li><a href="https://www.instagram.com/alekturkmen/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="https://github.com/AlekTurkmen" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="mailto:aleknturkmen@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-				</footer>
-			</section>
+        <div id="headerComponent"></div>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -326,19 +301,7 @@
 					</div>
 
 				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="icons">
-								<li><a href="https://www.linkedin.com/in/alekturkmen/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-								<li><a href="https://www.instagram.com/alekturkmen/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="https://github.com/AlekTurkmen" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								<li><a href="mailto:aleknturkmen@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; 2024 Alek Turkmen</li><li>All rights reserved.</li><li>Business: <a href="mailto:aleknturkmen@gmail.com" target="_blank"> aleknturkmen@gmail.com </a></li>
-							</ul>
-						</div>
-					</section>
+				<div id="footerComponent"></div>
 
 			</div>
 
@@ -350,6 +313,11 @@
 			<script src="../assets/js/breakpoints.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
-
+			<script src="../assets/js/components.js"></script>
+			<script>
+				// Load components
+				Components.loadComponent('headerComponent', '../components/header.html');
+				Components.loadComponent('footerComponent', '../components/footer.html');
+			</script>
 	</body>
 </html>
