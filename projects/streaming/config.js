@@ -1,5 +1,0 @@
-const CONFIG = {
-    API_KEY: 'AIzaSyADeGsV-FKpAa-RpVJWyJA9AMjETc5BwTE',
-    CHANNEL_ID: 'UCIBKxc6gad64c04ML9y3p0Q',
-    MAX_RESULTS: 50
-};
